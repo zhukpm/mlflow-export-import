@@ -258,20 +258,16 @@ Source: [export_model.py](mlflow_export_import/model/export_model.py).
 export-model --help
 
 Options:
-  --input-dir TEXT              Input directory produced by export_model.py.
-                                [required]
-  --model TEXT                  New registered model name.  [required]
-  --experiment-name TEXT        Destination experiment name  - will be created
-                                if it does not exist.  [required]
-  --delete-model BOOLEAN        If the model exists, first delete the model
-                                and all its versions.  [default: False]
-  --import-source-tags BOOLEAN  Import source information for registered model
-                                and its versions ad tags in destination
-                                object.  [default: False]
-  --await-creation-for INTEGER  Await creation for specified seconds.
-  --sleep-time INTEGER          Sleep time for polling until
-                                version.status==READY.
-  --verbose BOOLEAN             Verbose.  [default: False]
+  --model TEXT             Registered model name.  [required]
+  --output-dir TEXT        Output directory.  [required]
+  --notebook-formats TEXT  Databricks notebook formats. Values are SOURCE,
+                           HTML, JUPYTER or DBC (comma seperated).
+  --stages TEXT            Stages to export (comma seperated). Default is all
+                           stages and all versions. Stages are Production,
+                           Staging, Archived and None. Mututally exclusive
+                           with option --versions.
+  --versions TEXT          Export specified versions (comma separated).
+                           Mututally exclusive with option --stages.
 ```
 
 #### Example
